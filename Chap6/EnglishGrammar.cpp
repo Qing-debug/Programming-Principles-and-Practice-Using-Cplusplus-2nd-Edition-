@@ -17,6 +17,7 @@ void resetCinn() {
 }
 
 void clearInputStream() {
+	std::cout << "Clearing input buffer. If in terminal, \"input:\" is not automatically called, enter any value to continue.\n" ;
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignores entire input stream or until the delimiter is met '\n' (also discards delimiter from input buffer)
 }
 
@@ -97,7 +98,6 @@ bool sentence() {
 	std::cin.putback(ch);
 	std::string potential_noun;
 	std::cin >> potential_noun; 
-	//should this next part be nested? Not sure yet.
 	if (!isNoun(potential_noun)) {
 		return false;
 	}
@@ -112,7 +112,11 @@ bool sentence() {
 	if (!isVerb(potential_verb)) {
 		return false;
 	}
-	std::cin.get();//consume whitespace after reading in string
+	ch = std::cin.get(); //consume whitespace after reading in string or \n depending on input.
+	if (ch == '\n') {
+		return false;
+	}
+
 	if (isFullstop()) {
 		return true;
 	}
@@ -132,6 +136,8 @@ int main() {
 		else {
 			std::cout << "Not OK" << '\n' << '\n';
 		}
+		//if stream is fully clear after sentence() is executed, calling this causes the program to wait for user input as it has nothing to ignore.
 		clearInputStream();
 	}
 }
+
