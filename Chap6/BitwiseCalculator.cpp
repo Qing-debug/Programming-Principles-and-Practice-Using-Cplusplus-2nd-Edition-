@@ -3,7 +3,7 @@
 #include <exception>
 #include <string>
 
-//Hard to check if it work as intended due to a lack of understanding in bitwise operations on operands. However, the main point of this exercise was to build the grammar. As long as it parses everything well enough for an output, i'm happy.
+//Hard to check if it works as intended due to a lack of understanding in bitwise operations on operands. However, the main point of this exercise was to build the grammar. As long as it parses everything well enough for an output, i'm happy.
 //I could definitely figure out the logic if the outputs were of incorrect value but i would have to waste more time on understanding bitwise manipulation. Hence i'm leaving it as is.
 void clearInputStream() {
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignores entire input stream or until the delimiter is met '\n' (also discards delimiter from input buffer)
