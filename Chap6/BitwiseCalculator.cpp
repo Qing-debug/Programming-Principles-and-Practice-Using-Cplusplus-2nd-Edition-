@@ -116,9 +116,6 @@ int primary() {
 	
 }
 
-//issues with current code: 
-// 1.using cin.get assumes numbers are only single digit for the order of the expression to be correct. after calling cin.get, if its a number, we should put back and read as an int.
-// 2. I think it's reading in the final /n after entering an input as its computing an answer but outputting "invalid pramary afterwards"
 int main() {
 	while(true){
 		try {
